@@ -1,0 +1,43 @@
+name: 🧩 Build Wiki → PDF (MyWebApp)
+
+on:
+  workflow_dispatch:    # Cho phép chạy thủ công
+  push:
+    branches: [ main ]  # Tự động build khi bạn push lên nhánh main
+
+jobs:
+  build-wiki-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧠 Clone the wiki repository
+        run: |
+          git clone https://github.com/LTNghia-Z/MyWebApp.wiki.git wiki
+          echo "Wiki cloned successfully"
+
+      - name: ⚙️ Install Pandoc & LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-latex-recommended
+          echo "Pandoc and LaTeX installed"
+
+      - name: 🧾 Combine all Wiki Markdown files into PDF
+        run: |
+          cd wiki
+          pandoc *.md -s --toc -o ../MyWebApp-Wiki.pdf \
+            --metadata title="MyWebApp Wiki Documentation" \
+            --pdf-engine=xelatex \
+            -V geometry:margin=1in \
+            -V mainfont="DejaVu Serif" \
+            -V lang=vi
+          echo "PDF generated successfully"
+
+      - name: 📤 Upload Wiki PDF to GitHub Actions
+        uses: actions/upload-artifact@v4
+        with:
+          name: MyWebApp-Wiki
+          path: MyWebApp-Wiki.pdf
+
+      - name: ✅ Summary
+        run: |
+          echo "✅ Wiki has been successfully converted to PDF!"
