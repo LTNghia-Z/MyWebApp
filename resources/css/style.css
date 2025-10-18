@@ -1,0 +1,87 @@
+/* Custom Styles for Food Market Welcome Page */
+
+body {
+    font-family: 'Arial', sans-serif; /* Chọn font chữ phù hợp */
+    color: #333; /* Màu chữ cơ bản */
+}
+
+/* Header */
+.header {
+    padding: 15px 0;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #f8f9fa; /* Màu nền nhẹ */
+    padding: 80px 0;
+}
+
+.hero-text {
+    padding-right: 30px;
+}
+
+.hero-image img {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* Tạo bóng đổ cho ảnh */
+}
+
+/* About Us Section */
+.about-us {
+    /* Màu nền đã được set trong HTML (bg-light) */
+}
+
+.about-us i {
+    opacity: 0.8; /* Giảm độ đậm của icon */
+}
+
+/* Featured Categories Section */
+.featured-categories {
+    padding: 60px 0;
+}
+
+.card {
+    border: none; /* Loại bỏ border mặc định của card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Thêm bóng đổ nhẹ cho card */
+    transition: transform 0.2s ease-in-out; /* Hiệu ứng hover nhẹ */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Nâng card lên khi hover */
+}
+
+.card-img-top {
+    height: 200px; /* Chiều cao cố định cho ảnh card */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+/* Footer */
+.footer {
+    /* Màu nền và chữ trắng đã được set trong HTML (bg-dark text-white) */
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments (nếu cần thiết) */
+@media (max-width: 768px) {
+    .hero-text {
+        padding-right: 0; /* Loại bỏ padding bên phải ở màn hình nhỏ */
+        text-align: center; /* Căn giữa chữ ở màn hình nhỏ */
+        margin-bottom: 30px; /* Thêm khoảng cách dưới phần chữ */
+    }
+    .hero-image {
+        text-align: center; /* Căn giữa ảnh ở màn hình nhỏ */
+    }
+    .hero-image img {
+        max-width: 80%; /* Giảm kích thước ảnh ở màn hình nhỏ */
+    }
+}
